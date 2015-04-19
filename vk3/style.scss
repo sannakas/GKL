@@ -1,0 +1,109 @@
+﻿
+$header-font:'Helvetica ', cursive;
+$html-bg-color1: #BAA5FA;
+$html-bg-color2: #F25A46;
+$font_color: darken($html-bg-color2, 90%);
+$ullia-bg-color2: #F0801D;
+$ullia-bg-color1: darken($ullia-bg-color2, 20%);
+@mixin gradient-bg($position, $color1, $color2) {
+    background-image:linear-gradient($position, $color1, $color2);
+    background-image:-moz-linear-gradient($position, $color1, $color2);
+    background-image:-webkit-linear-gradient($position, $color1, $color2);
+}
+@mixin border-radius($radius){
+    border-radius:$radius;
+    -moz-border-radius:$radius;
+    -webkit-border-radius:$radius;
+}
+
+html {
+    @include gradient-bg(bottom, $html-bg-color1 24%, $html-bg-color2 86%);
+    background-size: cover;
+    height: 100%;
+}
+body {
+    width: 50em;
+    margin: auto;
+    font-family: Verdana;
+    font-size: 12px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header, article, footer {
+    background-color: $html-bg-color2;
+    @include border-radius(8px);
+    width: 640px;
+    border: 1px solid #000000;
+    margin-bottom: 4px;
+    padding: 8px;
+}
+header h1 {
+    font-family:$header-font;
+    text-align: center;
+    font-size: 24px;
+    color: $font-color;
+}
+nav {
+    width: 640px;
+    clear: left;
+    float: left;
+    overflow: hidden;
+    ul {
+        height: 40px;
+        clear: left;
+        float: left;
+        position: relative;
+        left: 50%;
+        text-align: center;
+        li {
+            float: left;
+            position: relative;
+            right: 50%;
+            a {
+                @include border-radius(4px);
+                display: block;
+                line-height: 30px;
+                padding: 0 20px 0 20px;
+                margin: 0 4px 0 4px;
+                @include gradient-bg(bottom, $ullia-bg-color1 24%, $ullia-bg-color2 86%);
+                color: $font-color;
+                text-decoration: none;
+                border: 2px outset $html-bg-color2;
+                &:hover{@include gradient-bg(bottom, $ullia-bg-color1 24%, $ullia-bg-color2 86%);}
+            }
+
+        }
+    }
+}
+article {
+    float: left;
+    line-height: 140%;
+    img {
+        @include border-radius(4px);
+        float: right;
+        border: 2px solid #000;
+        margin-left: 8px;
+    }
+    h2 {
+        font-family:$header-font;
+        font-size: 21.6px;
+        line-height: 140%;
+        color: $font-color;
+    }
+    h3 {
+        font-family:$header-font;
+        font-size: 19.200000000000003px;
+        line-height: 140%;
+        margin-top: 8px;
+       color: $font-color;
+    }
+    p {
+        margin-bottom: 12px;
+       color: $font-color;
+    }
+}
+footer {
+    float: left;
+    text-align: center;
+}
